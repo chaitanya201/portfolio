@@ -587,7 +587,7 @@ const AboutMePage = () => {
                   <Environment preset="sunset" />
                 </Canvas>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-6">
                 {hobbies.map((hobby, index) => (
                   <motion.div
                     key={hobby.name}
