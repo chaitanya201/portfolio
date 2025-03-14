@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import DownloadCV from "./DownloadCV";
+import { useNavigate } from "@tanstack/react-router";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,7 @@ const Navbar = () => {
   const [showLightning, setShowLightning] = useState(false);
   const lastClickedRef = useRef<HTMLElement | null>(null);
   const { scrollY } = useScroll();
-
+  const navigate = useNavigate();
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
@@ -28,7 +29,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
+    { name: "About", href: "about" },
     { name: "Skills", href: "#skills" },
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
@@ -42,6 +43,8 @@ const Navbar = () => {
     href: string,
     index: number
   ) => {
+    navigate({ to: `/${href}` });
+
     e.preventDefault();
     const element = document.querySelector(href);
     const currentTarget = e.currentTarget;
@@ -235,7 +238,7 @@ const Navbar = () => {
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.name}
-                  href={item.href}
+                  href={`/${item.href}`}
                   className="text-white hover:text-purple-400 transition-colors relative"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
@@ -282,6 +285,6 @@ const Navbar = () => {
       </motion.nav>
     </>
   );
-}
+};
 
 export default Navbar;

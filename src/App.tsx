@@ -42,30 +42,28 @@ function App() {
   return (
     <>
       <Background />
-      <div className="relative min-h-screen">
-        {<Background3D />}
-        <motion.div
-          className="fixed top-0 left-0 right-0 h-1 bg-purple-600 origin-left z-[100]"
-          style={{ scaleX }}
+
+      {<Background3D />}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-purple-600 origin-left z-[100]"
+        style={{ scaleX }}
+      />
+
+      <div>
+        <Home
+          backgroundY={backgroundY}
+          opacity={opacity}
+          parallaxY={parallaxY}
         />
 
-        <Navbar />
-        <div>
-          <Home
-            backgroundY={backgroundY}
-            opacity={opacity}
-            parallaxY={parallaxY}
-          />
-
-          <div className="relative z-10">
-            <AboutMe />
-            <Skills />
-            <Experience />
-            <Projects />
-            <Certifications />
-            <Achievements />
-            <Contact />
-          </div>
+        <div className="relative z-10">
+          <AboutMe />
+          <Skills />
+          <Experience />
+          <Projects />
+          <Certifications />
+          <Achievements />
+          <Contact />
         </div>
       </div>
     </>

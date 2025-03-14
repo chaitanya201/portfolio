@@ -20,13 +20,16 @@ const DownloadCV = () => {
     setShowPopup(true);
     setTimeout(() => {
       setShowPopup(false);
-    }, 6000);
+    }, 10000);
 
     // Confetti Explosion 🎉
     confetti({
-      particleCount: 100,
-      spread: 70,
+      particleCount: 400,
+      spread: 90,
       origin: { y: 0.6 },
+      startVelocity: 50,
+      decay: 0.9,
+      gravity: 0.5,
     });
   };
 
