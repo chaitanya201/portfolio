@@ -29,7 +29,7 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Home", href: "#home" },
-    { name: "About", href: "about" },
+    { name: "More About Me", href: "about" },
     { name: "Skills", href: "#skills" },
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
@@ -256,7 +256,7 @@ const Navbar = () => {
               className="lg:hidden text-white"
               onClick={() => setIsOpen(!isOpen)}
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X className="" size={24} /> : <Menu size={24} />}
             </motion.button>
           </div>
 
@@ -267,6 +267,14 @@ const Navbar = () => {
             variants={menuVariants}
             className="lg:hidden fixed top-0 right-0 bottom-0 w-64 bg-gray-900/95 backdrop-blur-lg shadow-lg p-6 z-50"
           >
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="lg:hidden text-white absolute right-0 top-0 p-4"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <X className="" size={24} /> : <Menu size={24} />}
+            </motion.button>
             <div className="flex flex-col space-y-4">
               {navItems.map((item, index) => (
                 <motion.a

@@ -12,7 +12,7 @@ const Certifications = () => {
       issuer: "The Linux Foundation",
       date: "2024",
       score: "95%",
-      icon: Shield,
+      icon: "/KCNA.png",
       color: "#326CE5",
       details: [
         "Fundamental Kubernetes concepts including cluster components, control plane, and worker nodes.",
@@ -27,7 +27,7 @@ const Certifications = () => {
       issuer: "The Linux Foundation",
       date: "2024",
       score: "80%",
-      icon: Shield,
+      icon: "/ckad.avif",
       color: "#326CE5",
       details: [
         "Developed Kubernetes workloads using Pods, Deployments, ConfigMaps, and Secrets.",
@@ -42,7 +42,7 @@ const Certifications = () => {
       issuer: "The Linux Foundation",
       date: "2025",
       score: "81%",
-      icon: Shield,
+      icon: "cka.avif",
       color: "#326CE5",
       details: [
         "Advanced skills in Kubernetes cluster setup, node management, and troubleshooting.",
@@ -57,7 +57,7 @@ const Certifications = () => {
       issuer: "Amazon Web Services",
       date: "2025",
       score: "",
-      icon: Star,
+      icon: "/aws.webp",
       color: "#FF9900",
       details: [
         "Designed highly available, fault-tolerant, and scalable architectures on AWS.",
@@ -205,6 +205,18 @@ const Certifications = () => {
                             Score: {cert.score}
                           </p>
                         )}
+                        <motion.div>
+                          <motion.a
+                            href={cert.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="px-4 sm:px-6 py-2 sm:py-3 bg-purple-600 rounded-lg text-center hover:bg-purple-700 transition-colors text-sm sm:text-base"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            View Certificate
+                          </motion.a>
+                        </motion.div>
                       </div>
                       <motion.ul className="space-y-2 sm:space-y-3 list-disc pl-4 text-sm sm:text-base">
                         {cert.details.map((detail, i) => (
@@ -220,23 +232,13 @@ const Certifications = () => {
                         ))}
                       </motion.ul>
                     </div>
-                    <motion.a
-                      href={cert.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-4 sm:mt-6 px-4 sm:px-6 py-2 sm:py-3 bg-purple-600 rounded-lg text-center hover:bg-purple-700 transition-colors text-sm sm:text-base"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      View Certificate
-                    </motion.a>
                   </motion.div>
                 ) : (
                   // Front of card
                   <motion.div className="h-full flex flex-col justify-between">
                     {/* Icon with Glow Effect */}
                     <motion.div
-                      className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 relative"
+                      className="w-52 h-52 mx-auto mb-4 relative"
                       whileHover={{ scale: 1.1, rotate: 360 }}
                       transition={{ duration: 0.5 }}
                     >
@@ -246,10 +248,14 @@ const Certifications = () => {
                         animate="animate"
                         className="absolute inset-0 bg-purple-600/20 rounded-full"
                       />
-                      <cert.icon
+                      {/* <cert.icon
                         size="100%"
                         className="relative z-10 w-full h-full"
                         style={{ color: cert.color }}
+                      /> */}
+                      <img
+                        className="relative z-10 w-full h-full"
+                        src={cert.icon}
                       />
                     </motion.div>
 
