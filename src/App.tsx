@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
-import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
@@ -42,8 +41,7 @@ function App() {
   return (
     <>
       <Background />
-
-      {<Background3D />}
+      <Background3D />
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-purple-600 origin-left z-[100]"
         style={{ scaleX }}
